@@ -13,7 +13,7 @@ is planned.
 ## Introduction
 
 All relevant classes and functions can be accessed through the header file `korean_romanizer.h`.
-After inserting `korean_romanizer.h` and `korean_romanizer.cpp` into the project structure,
+After adding the files `korean_romanizer.h` and `korean_romanizer.cpp` into the project structure,
 it can be included like the following:
 
 ```c++
@@ -24,11 +24,9 @@ A simple example file can be found at ```test/test.cpp``` in this repository.
 
 ## Usage
 
-The class `korean_romanizer` contains a romanization function that returns a `std::string`:
+The class `korean_romanizer` contains a romanization function called `romanize` that takes a `std::string` and returns a `std::string`.
 
-`korean_romanizer::romanize(std::string)`
-
-It can be used like the following:
+It can be accessed and used like the following:
 
 ```c++
 std::string s = korean_romanizer::romanize("안녕하세요!");
