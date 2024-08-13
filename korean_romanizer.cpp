@@ -370,18 +370,16 @@ void korean_character::decompose_character(const wchar_t _c) {
     if (i < 0 || i >= all_jamo_combination_count)
         is_korean_character = false;
     std::string s;
-    const int _leading_consonant = leading_consonant_jamo_min + (i / vowel_and_trailing_consonant_jamo_combination_count);
-    const int _vowel = vowel_jamo_min + (i % vowel_and_trailing_consonant_jamo_combination_count) / trailing_consonant_jamo_count;
-    const int _trailing_consonant = trailing_consonant_jamo_min + (i % trailing_consonant_jamo_count);
-    leading_consonant = _leading_consonant;
-    vowel = _vowel;
-    if (_trailing_consonant != trailing_consonant_jamo_min)
+    leading_consonant = leading_consonant_jamo_min + i / vowel_and_trailing_consonant_jamo_combination_count;
+    vowel = vowel_jamo_min + i % vowel_and_trailing_consonant_jamo_combination_count / trailing_consonant_jamo_count;
+    if (const int _trailing_consonant = trailing_consonant_jamo_min + i % trailing_consonant_jamo_count;
+        _trailing_consonant != trailing_consonant_jamo_min)
         trailing_consonant = _trailing_consonant;
     else
         trailing_consonant = 0;
 }
 std::string korean_character::romanize_character(const korean_character& previous_character, const korean_character& next_character) {
-    std::string s;
+    std::string result;
     if (!is_korean_character) {
         std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
         return converter.to_bytes({1, c});
@@ -399,10 +397,10 @@ std::string korean_character::romanize_character(const korean_character& previou
         next_leading_consonant_index = next_character.leading_consonant - leading_consonant_jamo_min;
     else
         next_leading_consonant_index = -1;
-    s += leading_consonant_pronunciation::get_pronunciation(previous_trailing_consonant_index, leading_consonant_index);
-    s += vowel_pronunciation::get_pronunciation(vowel_index);
-    s += trailing_consonant_pronunciation::get_pronunciation(next_leading_consonant_index, trailing_consonant_index);
-    return s;
+    result += leading_consonant_pronunciation::get_pronunciation(previous_trailing_consonant_index, leading_consonant_index);
+    result += vowel_pronunciation::get_pronunciation(vowel_index);
+    result += trailing_consonant_pronunciation::get_pronunciation(next_leading_consonant_index, trailing_consonant_index);
+    return result;
 }
 std::string korean_romanizer::romanize(const std::string& s) {
     std::string result;

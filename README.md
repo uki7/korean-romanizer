@@ -1,4 +1,4 @@
-![Release](https://img.shields.io/github/v/release/uki7/korean-romanizer)
+[![Release](https://img.shields.io/github/v/release/uki7/korean-romanizer)](https://github.com/uki7/korean-romanizer/releases/latest)
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 # korean-romanizer
