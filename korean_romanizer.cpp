@@ -121,8 +121,6 @@ std::string korean_character::leading_consonant_pronunciation::get_pronunciation
                 case ㄲ: return "kk";
                 case ㄷ:
                 case ㄾ:
-                case ㅅ:
-                case ㅆ:
                 case ㅈ:
                 case ㅊ:
                 case ㅌ: return "ch";
@@ -308,8 +306,7 @@ std::string korean_character::trailing_consonant_pronunciation::get_pronunciatio
                 case ㄹ: return "l";
                 case ㄸ:
                 case ㅇ:
-                case ㅌ:
-                case ㅎ: return "";
+                case ㅌ: return "";
                 default: return pronunciations[index];
             }
         // ㅋ
