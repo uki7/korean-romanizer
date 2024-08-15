@@ -81,7 +81,7 @@ std::string korean_character::leading_consonant_pronunciation::get_pronunciation
                 case ㅅ: return "s";
                 case ㄴ:
                 case ㄶ: return "n";
-                case ㄷ:
+                case ㄷ: return "d";
                 case ㄵ:
                 case ㅈ: return "j";
                 case ㄹ: return "r";
