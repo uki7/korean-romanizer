@@ -34,3 +34,25 @@ std::cout << s;
 
 // prints "annyeonghaseyo!"
 ```
+
+## Limitations
+
+Korean is a difficult language to romanize programmatically due to many pronunciation inconsistencies.
+This library attemps to resolve most of these inconsistencies, but some discrepancies may be completely unavoidable.
+
+One of these discrepancies is when the same instance of a trailing consonant (e.g. "ㄴ") into a leading consonant (e.g. "ㄹ") yields different pronunciations (and thus, romanizations):
+
+| Written | Pronunciation | Romanization |
+|---------|---------------|--------------|
+| 난로      | 날로            | Na**ll**o
+| 신문로     | 신문노           | Sinmu**nn**o
+
+As implementing a more complicated system could bloat the size and limit the speed of this library considerably, this library unfortunately does not respect this pronunciation discrepancy,
+opting for the more common pronunciation instead:
+
+```c++
+std::cout << korean_romanizer::romanize("난로");
+// prints "nallo"
+std::cout << korean_romanizer::romanize("신문로");
+// prints "sinmullo"
+```

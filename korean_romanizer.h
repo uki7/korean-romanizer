@@ -11,20 +11,20 @@ class korean_character {
     /**
      * The code point of the first Hangul jamo representing a leading consonant (ᄀ) in the Unicode character table.
      *
-     * @see <a href="https://en.wikipedia.org/wiki/Hangul_Jamo_(Unicode_block)">Hangul Jamo (Unicode block) on Wikipedia.</a>
+     * @see <a href="https://en.wikipedia.org/wiki/Hangul_Jamo_(Unicode_block)">Hangul Jamo (Unicode block) on Wikipedia</a>
      */
     int leading_consonant_jamo_min = 0x1100;
     /**
      * The code point of the first Hangul jamo representing a vowel (ᅡ) in the Unicode character table.
      *
-     * @see <a href="https://en.wikipedia.org/wiki/Hangul_Jamo_(Unicode_block)">Hangul Jamo (Unicode block) on Wikipedia.</a>
+     * @see <a href="https://en.wikipedia.org/wiki/Hangul_Jamo_(Unicode_block)">Hangul Jamo (Unicode block) on Wikipedia</a>
      */
     int vowel_jamo_min = 0x1161;
     /**
      * One code point before the first Hangul jamo representing a trailing consonant (ᆨ) in the Unicode character table.
      * (Moving the code point accounts for the lack of a trailing consonant.)
      *
-     * @see <a href="https://en.wikipedia.org/wiki/Hangul_Jamo_(Unicode_block)">Hangul Jamo (Unicode block) on Wikipedia.</a>
+     * @see <a href="https://en.wikipedia.org/wiki/Hangul_Jamo_(Unicode_block)">Hangul Jamo (Unicode block) on Wikipedia</a>
      */
     int trailing_consonant_jamo_min = 0x11A7;
     /**
@@ -55,7 +55,7 @@ class korean_character {
     /**
      * The code point of the first Hangul character (가) in the Unicode character table.
      *
-     * @see <a href="https://en.wikipedia.org/wiki/Hangul_Syllables">Hangul Syllables on Wikipedia.</a>
+     * @see <a href="https://en.wikipedia.org/wiki/Hangul_Syllables">Hangul Syllables on Wikipedia</a>
      */
     int character_min = 0xAC00;
     /**
@@ -165,14 +165,14 @@ protected:
      * Decomposes a Hangul character into its jamo components, assigning them to the variables
      * @link leading_consonant @endlink, @link vowel @endlink, and @link trailing_consonant @endlink.
      *
-     * For the decomposition algorithm, please reference Section 3.12 of the Unicode Standard linked below.
+     * For an explanation of the decomposition algorithm, please reference Section 3.12 of the Unicode Standard linked below.
      *
      * @param _c The Hangul character to be decomposed into its jamo components.
-     * @see <a href="https://en.wikipedia.org/wiki/Hangul_Jamo_(Unicode_block)">Section 3.12 of the Unicode Standard.</a>
+     * @see <a href="https://en.wikipedia.org/wiki/Hangul_Jamo_(Unicode_block)">Section 3.12 of the Unicode Standard</a>
      */
     void decompose_character(wchar_t _c);
     /**
-     * Romanizes a Hangul character given its surrounding characters.
+     * Romanizes a Hangul character while taking into account its surrounding characters.
      *
      * @param previous_character The character preceding the current character.
      * @param next_character The character following the current character.
@@ -190,6 +190,7 @@ public:
   *
   * @param s The Hangul string to be romanized.
   * @return The romanization of the Hangul string.
+  * @see <a href="https://www.korean.go.kr/front_eng/roman/roman_01.do">Revised Romanization of Korean system transcription summary</a>
   */
  static std::string romanize(const std::string& s);
 };
